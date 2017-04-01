@@ -9,8 +9,8 @@ public class UtbetalingBeregner {
         this.utbetalingsgrunnlagRepository = utbetalingsgrunnlagRepository;
     }
 
-    public BigDecimal beregnUtbetalingFor(String kundeId) {
+    public BigDecimal beregnUtbetalingFor(Long kundeId) {
         Utbetalingsgrunnlag utbetalingsgrunnlag = utbetalingsgrunnlagRepository.findUtbetalingsgrunnlag(kundeId);
-        return BigDecimal.ZERO;
+        return utbetalingsgrunnlag.getGrunnbeloep().multiply(utbetalingsgrunnlag.getOmberegningsFaktor());
     }
 }

@@ -1,12 +1,9 @@
 # Introduksjon til JUnit og Mockito
 
-Mockito er et 
+Verifikasjon av interaksjoner
 
-## Oppgave 1: Mockito.mock(), @Mock, Mockito.when
+## Oppgave 2: Mockito.verify()
 
-1. Legg til Mockito 2 som avhengighet
-2. Mock ut avhengigheten mot UtbetalingsgrunnlagRepository
-3. Ferdigstill implementrasjonen slik at testen blir 'grønn'
 
 
 
