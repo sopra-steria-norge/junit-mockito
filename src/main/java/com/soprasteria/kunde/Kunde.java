@@ -1,4 +1,4 @@
-package com.soprasteria.com.soprasteria.kunde;
+package com.soprasteria.kunde;
 
 public class Kunde {
     private String navn;

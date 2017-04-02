@@ -2,6 +2,9 @@
 
 Verifikasjon av interaksjoner
 
-## Oppgave 7: Kan du skrive om testen fra oppgave 6 til å benytte argumentacaptor isteden?
+## Oppgave 8: Saksbehandler skal også inkluderes i vedtaksbrevet. Hvordan kan man gå frem for å teste 
+dette når det benyttes statisk metode?
+
+
 
 

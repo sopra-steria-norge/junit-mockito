@@ -1,9 +1,10 @@
 package com.soprasteria.vedtak;
 
 import com.soprasteria.beregning.UtbetalingBeregner;
-import com.soprasteria.com.soprasteria.kunde.Kunde;
-import com.soprasteria.com.soprasteria.kunde.KundeRepository;
+import com.soprasteria.kunde.Kunde;
+import com.soprasteria.kunde.KundeRepository;
 import com.soprasteria.digitalpost.DigitalPostKlient;
+import com.soprasteria.user.UserContext;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -22,6 +23,7 @@ class VedtakService {
     void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
         Kunde kunde = kundeRepository.getKunde(kundeId);
-        digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn()));
+        String saksbehandler = UserContext.getCurrentUser();
+        digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn(), saksbehandler));
     }
 }

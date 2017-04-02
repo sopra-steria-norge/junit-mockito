@@ -2,19 +2,17 @@ package com.soprasteria.vedtak;
 
 
 import com.soprasteria.beregning.UtbetalingBeregner;
-import com.soprasteria.com.soprasteria.kunde.Kunde;
-import com.soprasteria.com.soprasteria.kunde.KundeRepository;
+import com.soprasteria.kunde.Kunde;
+import com.soprasteria.kunde.KundeRepository;
 import com.soprasteria.digitalpost.DigitalPostKlient;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.ArgumentMatcher;
-import org.mockito.Mockito;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.UUID;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
@@ -43,8 +41,8 @@ public class VedtakServiceTest {
                 captor.capture());
         Vedtaksbrev captured = captor.getValue();
 
-        Assertions.assertThat(captured.getNavn()).isEqualTo(navn);
-        Assertions.assertThat(captured.getBelop()).isEqualTo(BigDecimal.TEN);
+        assertThat(captured.getNavn()).isEqualTo(navn);
+        assertThat(captured.getBelop()).isEqualTo(BigDecimal.TEN);
     }
 
 }
