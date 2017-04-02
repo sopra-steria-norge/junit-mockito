@@ -6,4 +6,8 @@ public class Kunde {
     public Kunde(String navn){
         this.navn = navn;
     }
+
+    public String getNavn() {
+        return navn;
+    }
 }

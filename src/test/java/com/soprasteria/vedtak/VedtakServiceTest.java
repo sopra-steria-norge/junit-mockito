@@ -2,6 +2,7 @@ package com.soprasteria.vedtak;
 
 
 import com.soprasteria.beregning.UtbetalingBeregner;
+import com.soprasteria.com.soprasteria.kunde.KundeRepository;
 import com.soprasteria.digitalpost.DigitalPostKlient;
 import org.junit.Test;
 
@@ -15,14 +16,15 @@ public class VedtakServiceTest {
     public void sender_digital_post_naar_vedtak_godkjennes() {
         DigitalPostKlient digitalPostKlient = mock(DigitalPostKlient.class);
         UtbetalingBeregner utbetalingBeregner = mock(UtbetalingBeregner.class);
-        VedtakService vedtakService = new VedtakService(digitalPostKlient, utbetalingBeregner);
+        KundeRepository kundeRepository = mock(KundeRepository.class);
+        VedtakService vedtakService = new VedtakService(digitalPostKlient, utbetalingBeregner, kundeRepository);
 
         Long kundeId = 5L;
         when(utbetalingBeregner.beregnUtbetalingFor(kundeId)).thenReturn(BigDecimal.TEN);
 
         vedtakService.godkjennVedtak(kundeId);
 
-//        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
+        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
     }
 
 }
