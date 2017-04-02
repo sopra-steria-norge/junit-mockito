@@ -113,3 +113,30 @@ public void setUp()
     2. Implementer metoden slik at den sletter den midlertidige filen som `setUp`-metoden oppretter
     3. Kjør testene og se at fortsatt er grønne. Hvordan ser rotmappa til prosjektet ut nå?
 
+## Del 6: Ignorering av tester
+1. Legg til annotasjonen `@Ignore` på metoden `FilLeserTest#skal_lese_første_linje_fra_fil`
+2. Kjør testene, og se på rapporten
+3. Legg til en kommentar som parameter til `@Ignore`-annotasjonen
+4. Kjør testene
+
+## Del 7: @Rule
+1. Finn frem igjen `KalkulatorTest` og legg til følgende felt i klassen:
+```
+public ExpectedException expectedException = ExpectedException.none();
+```
+2. Annotér feltet med `@Rule`
+3. Fjern `expected`-parameteret fra `@Test`-annotasjonen på `KalkulatorTest#skal_få_IllegalArgumentException_når_divisor_er_0`
+4. Kjør testene
+5. Øverst i `KalkulatorTest#skal_få_IllegalArgumentException_når_divisor_er_0`, legg til følgende:
+```
+expectedException.expect(IllegalArgumentException.class);
+```
+6. Kjør testene igjen
+
+### Oppgave
+7. Utvid testen og bruk `ExpectedException#expectMessage(...)` til å verifisere at feilmeldingen er `Divisor kan ikke være 0!`
+
+### Ekstraoppgave
+8. Skriv om `FilLeserTest` til å benytte `TemporaryFolder` (en annen `@Rule`) i stedet for metodene `setUp` og `tearDown`
+
+## Del 8: Testsuiter og kategorier

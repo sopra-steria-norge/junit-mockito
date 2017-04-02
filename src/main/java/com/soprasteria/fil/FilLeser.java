@@ -1,4 +1,4 @@
-package com.soprasteria.filbehandler;
+package com.soprasteria.fil;
 
 import java.io.IOException;
 import java.nio.file.Files;
