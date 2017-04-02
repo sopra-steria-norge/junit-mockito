@@ -6,9 +6,11 @@ import com.soprasteria.com.soprasteria.kunde.Kunde;
 import com.soprasteria.com.soprasteria.kunde.KundeRepository;
 import com.soprasteria.digitalpost.DigitalPostKlient;
 import org.junit.Test;
+import org.mockito.ArgumentMatcher;
 import org.mockito.Mockito;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -33,9 +35,10 @@ public class VedtakServiceTest {
 
         vedtakService.godkjennVedtak(kundeId);
 
-        Vedtaksbrev vedtaksbrev = new Vedtaksbrev(BigDecimal.TEN, navn);
+        Vedtaksbrev expected = new Vedtaksbrev(BigDecimal.TEN, navn);
 
-        verify(digitalPostKlient).sendVedtaksbrev(any(UUID.class), eq(vedtaksbrev));
+        verify(digitalPostKlient).sendVedtaksbrev(any(UUID.class),
+                Mockito.argThat(vedtaksbrev -> Objects.equals(expected.getNavn(), vedtaksbrev.getNavn())));
     }
 
 }
