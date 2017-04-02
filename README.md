@@ -15,8 +15,8 @@ Denne introduksjonen forutsetter at Maven 3 er installert (https://maven.apache.
 </dependency>
 ```
 
-3. Opprett en testpakke `com.soprasteria.kalkulator` i src/test/java/
-4. Opprett en testklasse `KalkulatorTest.java` i testpakken
+3. Opprett en pakke `com.soprasteria.kalkulator` i src/test/java/
+4. Opprett en testklasse `KalkulatorTest` i pakken
 5. Kjør `mvn test` igjen, og sammenlign utskriften med første kjøring
 
 ## Del 2: Første test
@@ -35,9 +35,9 @@ public void skal_få_4_når_1_og_3_adderes()
 ### Oppgave:
 9. Test `Kalkulator#subtraher` og `Kalkulator#multipliser`
     1. Skriv nye testmetoder i `KalkulatorTest.java`. Husk `@Test`-annotasjonen
-    2. Kjør `mvn test` og verifiser at testene feiler
+    2. Kjør testene og verifiser at de feiler
     3. Fiks koden i `Kalkulator`
-    4. Kjør `mvn test` og verifiser at testene kjører grønt!
+    4. Kjør testene og verifiser at de kjører grønt!
 
 ## Del 3: Bedre assertions
 1. Legg til AssertJ som avhengighet i `pom.xml`, like under `junit`:
@@ -69,20 +69,20 @@ public int divider(int dividend, int divisor) {}
 ```
 public void skal_få_2_når_8_divideres_med_4()
 ```
-3. Implementer testen, kjør `mvn test` og se at den feiler
-4. Implementer metoden `Kalkulator#divider`, kjør `mvn test` og se at testen går grønt
+3. Implementer testen, kjør den og se at den feiler
+4. Implementer metoden `Kalkulator#divider`, kjør testen og se at den går grønt
 5. Opprett en testmetode i `KalkulatorTest`med følgende signatur:
 ```
 public void skal_få_IllegalArgumentException_når_divisor_er_0()
 ```
-6. Bruk parameteret `exåected` til `@Test`-annotasjonen til å si at vi forventer enn IllegalArgumentException
+6. Bruk parameteret `expected` til `@Test`-annotasjonen til å si at vi forventer enn IllegalArgumentException
 7. Implementer testmetoden og gjør et kall til `Kalkulator#divider` med 0 som divisor
 8. Kjør testen og se at den feiler
 9. Implementer en sjekk på divisorens verdi i `Kalkulator#divider` der en exception kastes dersom den er 0
 10. Kjør testen og se at den går grønt
 
 ## Del 5: Forberedelser og etterarbeid
-1. Opprett testpakken `com.soprasteria.filleser` i src/test/java, og opprett testklassen `FilLeserTest` i pakken
+1. Opprett pakken `com.soprasteria.filleser` i src/test/java, og opprett testklassen `FilLeserTest` i pakken
 2. Lag en testmetode med følgende signatur:
 ```
 public void skal_lese_første_linje_fra_fil()
@@ -146,11 +146,17 @@ expectedException.expect(IllegalArgumentException.class);
 @Parameters
 public static Collection<Object[]> data() {
     return Arrays.asList(new Object[][] {
-             {0, 0, 0}, {1, 0, 1}, {2, 1, 2}, {3, 2, 6}, {4, 3, 12}, {5, 5, 25}, {6, 8, 47}
+             {0, 0, 0},
+             {1, 0, 0},
+             {2, 1, 2},
+             {3, 2, 6},
+             {4, 3, 12},
+             {5, 5, 25},
+             {6, 8, 47}
        });
 }
 
-@Parameter(0)
+@Parameter //default 0
 public int multiplikand;
 
 @Parameter(1)
