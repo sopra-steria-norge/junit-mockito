@@ -2,7 +2,7 @@ package com.soprasteria.kalkulator;
 
 public class Kalkulator {
 
-    public int summer(int ledd1, int ledd2) {
+    public int adder(int ledd1, int ledd2) {
         return 0;
     }
 
