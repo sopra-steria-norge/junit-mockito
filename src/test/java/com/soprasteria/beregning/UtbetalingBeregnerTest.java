@@ -2,6 +2,7 @@ package com.soprasteria.beregning;
 
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 
@@ -17,7 +18,6 @@ public class UtbetalingBeregnerTest {
         Utbetalingsgrunnlag utbetalingsgrunnlag = new UtbetlingsgrunnlagSample().build();
         UtbetalingsgrunnlagRepository repository = mock(UtbetalingsgrunnlagRepository.class);
         when(repository.findUtbetalingsgrunnlag(kundeId)).thenReturn(utbetalingsgrunnlag);
-
         BigDecimal forventetResultat = utbetalingsgrunnlag.getGrunnbeloep().multiply(utbetalingsgrunnlag.getOmberegningsFaktor());
         assertThat(new UtbetalingBeregner(repository).beregnUtbetalingFor(kundeId)).isEqualTo(forventetResultat);
     }

@@ -2,8 +2,6 @@
 
 Verifikasjon av interaksjoner
 
-## Oppgave 6: Bruk av argumentmatcher
+## Oppgave 7: Kan du skrive om testen fra oppgave 6 til å benytte argumentacaptor isteden?
 
 
-I noen tilfeller har man ikke kontroll på koden. Equals/hashcode er fjernet fra Vedtaksbrev. 
-Kan du få testen til å kjøre grønt?
