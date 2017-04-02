@@ -1,8 +1,10 @@
 # Introduksjon til JUnit og Mockito
 
-## Oppgave 1: Oppsett
+Denne introduksjonen forutsetter at Maven 3 er installert (https://maven.apache.org/download.cgi)
+
+## Del 1: Oppsett
 1. Kjør `mvn test` i rotmappa til prosjektet
-2. Legg til junit som avhengighet i pom.xml
+2. Legg til junit som avhengighet i `pom.xml`:
 
 ```
 <dependency>
@@ -13,6 +15,7 @@
 </dependency>
 ```
 
-3. Opprett en mappe src/test/java
-4. Opprett en testklasse CalculatorTest.java i src/test/java
-5. Kjør mvn test igjen, sammenlign utskriften med første kjøring
+3. Opprett en testpakke `com.soprasteria.kalkulator` i src/test/java/
+4. Opprett en testklasse `KalkulatorTest.java` i testpakken
+5. Kjør `mvn test` igjen, sammenlign utskriften med første kjøring
+

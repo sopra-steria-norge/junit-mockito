@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>no.soprasteria.kgjava</groupId>
+  <groupId>com.soprasteria</groupId>
   <artifactId>junit-mockito</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -28,6 +28,6 @@
   </build>
 
   <dependencies>
-    <!-- Lim inn dependency her! -->
+    <!-- Lim inn avhengighet her! -->
   </dependencies>
 </project>
