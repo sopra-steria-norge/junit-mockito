@@ -23,9 +23,10 @@ class VedtakService {
     void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
         Kunde kunde = kundeRepository.getKunde(kundeId);
-        String saksbehandler = UserContext.getCurrentUser();
+//        String saksbehandler = UserContext.getCurrentUser();
         if(positivVerdi(utbetaling)) {
-            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn(), saksbehandler));
+//            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn(), saksbehandler));
+            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn()));
         }
     }
 
