@@ -5,8 +5,10 @@ import com.soprasteria.beregning.UtbetalingBeregner;
 import com.soprasteria.com.soprasteria.kunde.KundeRepository;
 import com.soprasteria.digitalpost.DigitalPostKlient;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import static org.mockito.Mockito.*;
 
@@ -23,7 +25,7 @@ public class VedtakServiceTest {
 
         vedtakService.godkjennVedtak(kundeId);
 
-//        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
+        verify(digitalPostKlient).sendVedtaksbrev(Mockito.any(UUID.class), Mockito.eq(BigDecimal.TEN));
     }
 
     @Test(expected = IllegalStateException.class)
@@ -31,8 +33,7 @@ public class VedtakServiceTest {
         when(utbetalingBeregner.beregnUtbetalingFor(kundeId)).thenThrow(new IllegalStateException());
 
         vedtakService.godkjennVedtak(kundeId);
-
-//        verify(digitalPostKlient, never()).sendVedtaksbrev(any(BigDecimal.class));
+        Mockito.verifyZeroInteractions(digitalPostKlient);
     }
 
     @Test
@@ -40,8 +41,7 @@ public class VedtakServiceTest {
         when(utbetalingBeregner.beregnUtbetalingFor(kundeId)).thenReturn(BigDecimal.ZERO);
 
         vedtakService.godkjennVedtak(kundeId);
-
-//        verify(digitalPostKlient, never()).sendVedtaksbrev(any(BigDecimal.class));
+        Mockito.verifyZeroInteractions(digitalPostKlient);
     }
 
 }

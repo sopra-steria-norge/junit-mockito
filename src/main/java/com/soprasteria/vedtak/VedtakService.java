@@ -21,9 +21,10 @@ class VedtakService {
 
     void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
-        Kunde kunde = kundeRepository.getKunde(kundeId);
+//        Kunde kunde = kundeRepository.getKunde(kundeId);
         if(positivVerdi(utbetaling)) {
-            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn()));
+            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), utbetaling);
+//            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn()));
         }
     }
 
