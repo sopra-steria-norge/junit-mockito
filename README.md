@@ -139,4 +139,31 @@ expectedException.expect(IllegalArgumentException.class);
 ### Ekstraoppgave
 8. Skriv om `FilLeserTest` til å benytte `TemporaryFolder` (en annen `@Rule`) i stedet for metodene `setUp` og `tearDown`
 
-## Del 8: Testsuiter og kategorier
+## Del 8: Parameterisert testing vha. en annen TestRunner
+1. Opprett en ny testklasse `KalkulatorMultipliserTest` i samme pakke som `KalkulatorTest`
+2. Annotér klassen med `@RunWith(Parameterized.class)`, og legg til følgende i klassen:
+```
+@Parameters
+public static Collection<Object[]> data() {
+    return Arrays.asList(new Object[][] {
+             {0, 0, 0}, {1, 0, 1}, {2, 1, 2}, {3, 2, 6}, {4, 3, 12}, {5, 5, 25}, {6, 8, 47}
+       });
+}
+
+@Parameter(0)
+public int multiplikand;
+
+@Parameter(1)
+public int multiplikator;
+
+@Parameter(2)
+public int produkt;
+```
+3. Opprett en testmetode med følgende signatur:
+```
+public void skal_få_produkt_når_multiplikand_multipliseres_med_multiplikator()
+```
+4. Oppsettet ligger nå i feltene i klassen. Alt vi trenger gjøre er å kalle `Kalkulator#multipliser` med feltene `multiplikand` og `multiplikator` som argumenter, og verifisere at resultatet blir som forventet (verdien som ligger i `produkt`-feltet). Implementer testmetoden!
+5. Kjør testen, og se på resultatet
+6. Korriger inputdata og kjør testen igjen!
+
