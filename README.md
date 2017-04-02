@@ -6,7 +6,6 @@ Mockito er et
 
 1. Legg til Mockito 2 som avhengighet
 2. Mock ut avhengigheten mot UtbetalingsgrunnlagRepository
-3. Ferdigstill implementrasjonen slik at testen blir 'grønn'
-
+3. Ferdigstill implementasjonen slik at testen blir 'grønn'
 
 
