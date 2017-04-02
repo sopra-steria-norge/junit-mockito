@@ -22,6 +22,10 @@ public class Vedtaksbrev {
         return belop;
     }
 
+    public String getSaksbehandler() {
+        return saksbehandler;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Vedtaksbrev{");

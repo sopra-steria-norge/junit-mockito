@@ -4,6 +4,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 public class UserContext {
     public static String getCurrentUser() {
-        return RandomStringUtils.random(10);
+        return RandomStringUtils.randomAlphabetic(10);
     }
 }
