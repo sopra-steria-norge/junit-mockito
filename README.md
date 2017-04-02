@@ -4,7 +4,7 @@ Denne introduksjonen forutsetter at Maven 3 er installert (https://maven.apache.
 
 ## Del 1: Oppsett
 1. Kjør `mvn test` i rotmappa til prosjektet
-2. Legg til junit som avhengighet i `pom.xml`:
+2. Legg til JUnit som avhengighet i `pom.xml`:
 
 ```
 <dependency>
@@ -38,3 +38,24 @@ public void skal_få_4_når_1_og_3_adderes() {}
     2. Kjør `mvn test` og verifiser at testene feiler
     3. Fiks koden i `Kalkulator`
     4. Kjør `mvn test` og verifiser at testene kjører grønt!
+
+## Del 3: Bedre assertions
+1. Legg til AssertJ som avhengighet i `pom.xml`, like under `junit`:
+```
+<dependency>
+    <groupId>org.assertj</groupId>
+    <artifactId>assertj-core</artifactId>
+    <version>3.6.2</version>
+    <scope>test</scope>
+</dependency>
+```
+2. Skriv om testmetoden `KalkulatorTest#skal_få_4_når_1_og_3_adderes` til å bruke AssertJ i stedet for junit.core.Assert
+    1. Fjern `Assert.assertEquals...`
+    2. Kall `Assertions.assertThat(...).isEqualTo(...)` i stedet
+    3. Legg til en statisk import av `Assertions.assertThat` for bedre lesbarhet
+    4. Kjør testen og se at den fremdeles er grønn
+
+### Oppgave:
+4. Skriv om resten av testen til å bruke AssertJ
+    1. Skriv om testmetodene for `Kalkulator#subtraher` og `Kalkulator#multipliser`
+    2. Kjør testene og se at de fremdeles er grønne
