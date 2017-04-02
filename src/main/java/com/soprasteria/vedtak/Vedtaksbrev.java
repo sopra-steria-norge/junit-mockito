@@ -4,16 +4,16 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Vedtaksbrev {
-    private final String epostadresse;
+    private final String navn;
     private final BigDecimal belop;
 
-    public Vedtaksbrev(BigDecimal belop, String epostadresse) {
+    public Vedtaksbrev(BigDecimal belop, String navn) {
         this.belop = belop;
-        this.epostadresse = epostadresse;
+        this.navn = navn;
     }
 
-    public String getEpostadresse() {
-        return epostadresse;
+    public String getNavn() {
+        return navn;
     }
 
     public BigDecimal getBelop() {
@@ -25,12 +25,12 @@ public class Vedtaksbrev {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vedtaksbrev that = (Vedtaksbrev) o;
-        return Objects.equals(epostadresse, that.epostadresse) &&
+        return Objects.equals(navn, that.navn) &&
                 Objects.equals(belop, that.belop);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(epostadresse, belop);
+        return Objects.hash(navn, belop);
     }
 }
