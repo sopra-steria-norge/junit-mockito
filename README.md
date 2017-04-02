@@ -2,10 +2,10 @@
 
 Verifikasjon av interaksjoner
 
-## Oppgave 3: Mockito.verify()
+## Oppgave 4: Bruk av argumentmatcher
 
-Det skal kun sendes vedtak dersom beløpet er > 0. Lag en test som verifiserer 
-at det sendes vedtak når beløpet er > 0 og at det ikke sendes vedtak når beløpet er 0. 
+En UUID må sendes med til APIet. Denne genereres 'on the fly'. Fiks testen slik at den verifiserer
+at det sendes med en UUID og forventet beløp
 
 
 
