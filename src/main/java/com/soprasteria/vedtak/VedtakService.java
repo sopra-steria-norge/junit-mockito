@@ -6,12 +6,17 @@ import com.soprasteria.digitalpost.DigitalPostKlient;
 import java.math.BigDecimal;
 
 class VedtakService {
-    private DigitalPostKlient digitalPostKlient;
-    private UtbetalingBeregner utbetalingBeregner;
+    private final DigitalPostKlient digitalPostKlient;
+    private final UtbetalingBeregner utbetalingBeregner;
 
+    VedtakService(DigitalPostKlient digitalPostKlient, UtbetalingBeregner utbetalingBeregner) {
+        this.digitalPostKlient = digitalPostKlient;
+        this.utbetalingBeregner = utbetalingBeregner;
+    }
 
-    public void godkjennVedtak(Long kundeId) {
+    void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
+        digitalPostKlient.sendVedtaksbrev(utbetaling);
         digitalPostKlient.sendVedtaksbrev(utbetaling);
     }
 }
