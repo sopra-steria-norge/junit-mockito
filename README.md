@@ -82,36 +82,34 @@ public void skal_få_IllegalArgumentException_når_divisor_er_0()
 10. Kjør testen og se at den går grønt
 
 ## Del 5: Forberedelser og etterarbeid
-1. Opprett en testklasse FileHandlerTest.java i src/test/java
-2. Lag en testmetode med følgende signatur
+1. Opprett testpakken `com.soprasteria.filleser` i src/test/java, og opprett testklassen `FilLeserTest` i pakken
+2. Lag en testmetode med følgende signatur:
 ```
-public void should_read_first_line_from_file() {}
+public void skal_lese_første_linje_fra_fil()
 ```
 3. Implementer metoden:
     1. Opprett en fil `tempfile.txt` med en linje tekst (f. eks. "Lisa gikk til skolen"). Tips: Du kan opprette en fil ved å skrive `new File("filnavn")`.
-    2. Gjør et kall til `FileHandler#readFirstLineFromFile` for å hente første linje
+    2. Gjør et kall til `FilLeser#lesLinjeFraFil` for å hente første linje
     3. Bruk assertions til å sjekke om returverdien er som forventet
-4. Kjør testen!
-5. Fiks koden i `FileHandler#readFirstLineFromFile`
-6. Kjør testen en gang til! Hva ble resultatet?
-7. Lag en testmetode til med følgende signatur. Husk annotasjonen!
+4. Kjør testen og se at den går grønt
+5. Lag en til testmetode til med følgende signatur:
 ```
-public void should_read_second_line_from_file() {}
+public void skal_lese_andre_linje_fra_fil() {}
 ```
-8. Implementer testen på tilsvarende måte som sist. Husk å legge til to linjer med tekst i filen, og bruk `FileHandler#readFirstLineFromFile` for å lese den andre linjen.
-9. Kjør begge testene!
-10. Opprett en metode med følgende signatur i `FileHandlerTest`:
+8. Implementer testen på tilsvarende måte som sist. Husk å legge til to linjer med tekst i filen, og bruk `FilLeser#lesLinjeFraFil` for å lese den andre linjen.
+9. Kjør begge testene og se at de går grønt
+10. Opprett en metode med følgende signatur i `FilLeserTest`:
 ```
-public void setUp() {}
+public void setUp()
 ```
-11. Legg til annotasjonen `@Before` over metoden
-12. Flytt koden som oppretter `tempFile.txt` inn i den nye metoden, og fjern den fra begge testmetodene
+11. Legg til annotasjonen `@Before` over metoden. Dette gjør at metoden kalles før hver eneste testmetode blir kjørt.
+12. Flytt koden som oppretter `tempFile.txt` inn i den nye `setUp`-metoden, og fjern koden fra begge testmetodene
 13. Kjør begge testene!
 14. Se i rotmappen til prosjektet. Ser du noe som ikke burde vært der?
-15. Opprett en metode med følgende signatur i `FileHandlerTest`:
-```
-public void tearDown() {}
-```
-16. Legg til annotasjonen `@After` over metoden
-17. Implementer kode til å slette den midlertidige filen i `tearDown()`
-18. Kjør begge testene! Hvordan ser rotmappa til prosjektet ut nå?
+
+### Oppgave
+15. Lag en metode som rydder opp de midlertidige filene etter at testene er kjørt
+    1. Opprett en metode som heter `tearDown` i `FilLeserTest`
+    2. Implementer metoden slik at den sletter den midlertidige filen som `setUp`-metoden oppretter
+    3. Kjør testene og se at fortsatt er grønne. Hvordan ser rotmappa til prosjektet ut nå?
+
