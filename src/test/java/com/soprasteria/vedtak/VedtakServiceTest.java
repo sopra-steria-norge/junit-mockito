@@ -3,6 +3,7 @@ package com.soprasteria.vedtak;
 
 import com.soprasteria.beregning.UtbetalingBeregner;
 import com.soprasteria.digitalpost.DigitalPostKlient;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -19,10 +20,9 @@ public class VedtakServiceTest {
 
         Long kundeId = 5L;
         when(utbetalingBeregner.beregnUtbetalingFor(kundeId)).thenReturn(BigDecimal.TEN);
+        when(digitalPostKlient.sendVedtaksbrev(BigDecimal.TEN)).thenReturn("referanse");
 
-        vedtakService.godkjennVedtak(kundeId);
-
-        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
+        Assertions.assertThat(vedtakService.godkjennVedtak(kundeId)).isEqualTo("referanse");
     }
 
 }

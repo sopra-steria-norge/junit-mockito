@@ -14,9 +14,9 @@ class VedtakService {
         this.utbetalingBeregner = utbetalingBeregner;
     }
 
-    void godkjennVedtak(Long kundeId) {
+    String godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
         digitalPostKlient.sendVedtaksbrev(utbetaling);
-        digitalPostKlient.sendVedtaksbrev(utbetaling);
+        return digitalPostKlient.sendVedtaksbrev(utbetaling);
     }
 }
