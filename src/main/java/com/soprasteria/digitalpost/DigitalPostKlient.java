@@ -1,10 +1,11 @@
 package com.soprasteria.digitalpost;
 
-import java.math.BigDecimal;
+import com.soprasteria.vedtak.Vedtaksbrev;
+
 import java.util.UUID;
 
 public class DigitalPostKlient {
-    public void sendVedtaksbrev(UUID uuid, BigDecimal belop) {
+    public void sendVedtaksbrev(UUID uuid, Vedtaksbrev vedtaksbrev) {
 
     }
 }
