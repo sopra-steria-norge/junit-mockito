@@ -2,7 +2,6 @@ package com.soprasteria.beregning;
 
 
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.math.BigDecimal;
 
