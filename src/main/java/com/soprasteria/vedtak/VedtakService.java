@@ -4,6 +4,7 @@ import com.soprasteria.beregning.UtbetalingBeregner;
 import com.soprasteria.digitalpost.DigitalPostKlient;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 class VedtakService {
     private final DigitalPostKlient digitalPostKlient;
@@ -16,7 +17,9 @@ class VedtakService {
 
     void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
+
         if(positivVerdi(utbetaling)) {
+//            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), utbetaling);
             digitalPostKlient.sendVedtaksbrev(utbetaling);
         }
     }
