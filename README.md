@@ -34,7 +34,7 @@ public void skal_få_4_når_1_og_3_adderes()
 
 ### Oppgave:
 9. Test `Kalkulator#subtraher` og `Kalkulator#multipliser`
-    1. Skriv nye testmetoder i `KalkulatorTest.java`
+    1. Skriv nye testmetoder i `KalkulatorTest.java`. Husk `@Test`-annotasjonen
     2. Kjør `mvn test` og verifiser at testene feiler
     3. Fiks koden i `Kalkulator`
     4. Kjør `mvn test` og verifiser at testene kjører grønt!
@@ -60,7 +60,7 @@ public void skal_få_4_når_1_og_3_adderes()
     1. Skriv om testmetodene for `Kalkulator#subtraher` og `Kalkulator#multipliser`
     2. Kjør testene og se at de fremdeles er grønne
 
-Del 4: Testing med exceptions
+## Del 4: Testing med exceptions
 1. Opprett en metode i `Kalkulator` med følgende signatur som returnerer 0:
 ```
 public int divider(int dividend, int divisor) {}
@@ -81,4 +81,37 @@ public void skal_få_IllegalArgumentException_når_divisor_er_0()
 9. Implementer en sjekk på divisorens verdi i `Kalkulator#divider` der en exception kastes dersom den er 0
 10. Kjør testen og se at den går grønt
 
-Del 5: Oppsett og opprydding
+## Del 5: Forberedelser og etterarbeid
+1. Opprett en testklasse FileHandlerTest.java i src/test/java
+2. Lag en testmetode med følgende signatur
+```
+public void should_read_first_line_from_file() {}
+```
+3. Implementer metoden:
+    1. Opprett en fil `tempfile.txt` med en linje tekst (f. eks. "Lisa gikk til skolen"). Tips: Du kan opprette en fil ved å skrive `new File("filnavn")`.
+    2. Gjør et kall til `FileHandler#readFirstLineFromFile` for å hente første linje
+    3. Bruk assertions til å sjekke om returverdien er som forventet
+4. Kjør testen!
+5. Fiks koden i `FileHandler#readFirstLineFromFile`
+6. Kjør testen en gang til! Hva ble resultatet?
+7. Lag en testmetode til med følgende signatur. Husk annotasjonen!
+```
+public void should_read_second_line_from_file() {}
+```
+8. Implementer testen på tilsvarende måte som sist. Husk å legge til to linjer med tekst i filen, og bruk `FileHandler#readFirstLineFromFile` for å lese den andre linjen.
+9. Kjør begge testene!
+10. Opprett en metode med følgende signatur i `FileHandlerTest`:
+```
+public void setUp() {}
+```
+11. Legg til annotasjonen `@Before` over metoden
+12. Flytt koden som oppretter `tempFile.txt` inn i den nye metoden, og fjern den fra begge testmetodene
+13. Kjør begge testene!
+14. Se i rotmappen til prosjektet. Ser du noe som ikke burde vært der?
+15. Opprett en metode med følgende signatur i `FileHandlerTest`:
+```
+public void tearDown() {}
+```
+16. Legg til annotasjonen `@After` over metoden
+17. Implementer kode til å slette den midlertidige filen i `tearDown()`
+18. Kjør begge testene! Hvordan ser rotmappa til prosjektet ut nå?
