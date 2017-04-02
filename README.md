@@ -17,5 +17,5 @@ Denne introduksjonen forutsetter at Maven 3 er installert (https://maven.apache.
 
 3. Opprett en testpakke `com.soprasteria.kalkulator` i src/test/java/
 4. Opprett en testklasse `KalkulatorTest.java` i testpakken
-5. Kjør `mvn test` igjen, sammenlign utskriften med første kjøring
+5. Kjør `mvn test` igjen, og sammenlign utskriften med første kjøring
 
