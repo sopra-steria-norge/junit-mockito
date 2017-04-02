@@ -166,4 +166,3 @@ public void skal_få_produkt_når_multiplikand_multipliseres_med_multiplikator()
 4. Oppsettet ligger nå i feltene i klassen. Alt vi trenger gjøre er å kalle `Kalkulator#multipliser` med feltene `multiplikand` og `multiplikator` som argumenter, og verifisere at resultatet blir som forventet (verdien som ligger i `produkt`-feltet). Implementer testmetoden!
 5. Kjør testen, og se på resultatet
 6. Korriger inputdata og kjør testen igjen!
-
