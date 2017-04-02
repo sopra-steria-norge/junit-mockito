@@ -22,9 +22,16 @@ class VedtakService {
 
     void godkjennVedtak(Long kundeId) {
         BigDecimal utbetaling = utbetalingBeregner.beregnUtbetalingFor(kundeId);
-        Kunde kunde = kundeRepository.getKunde(kundeId);
-        String saksbehandler = getCurrentUser();
-        digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn(), saksbehandler));
+        if(positivVerdi(utbetaling)) {
+            Kunde kunde = kundeRepository.getKunde(kundeId);
+            String saksbehandler = getCurrentUser();
+            digitalPostKlient.sendVedtaksbrev(UUID.randomUUID(), new Vedtaksbrev(utbetaling, kunde.getNavn(), saksbehandler));
+        }
+
+    }
+
+    private boolean positivVerdi(BigDecimal utbetaling) {
+        return utbetaling.compareTo(BigDecimal.ZERO) > 0;
     }
 
     String getCurrentUser() {
