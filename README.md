@@ -22,7 +22,7 @@ Denne introduksjonen forutsetter at Maven 3 er installert (https://maven.apache.
 ## Del 2: Første test
 1. Lag en metode i `KalkulatorTest.java` med følgende signatur
 ```
-public void skal_få_4_når_1_og_3_adderes() {}
+public void skal_få_4_når_1_og_3_adderes()
 ```
 2. Kjør `mvn test` og se på resultatet
 3. Legg til annotasjonen `@Test` over metoden for å markere at det er en test
@@ -59,3 +59,26 @@ public void skal_få_4_når_1_og_3_adderes() {}
 4. Skriv om resten av testen til å bruke AssertJ
     1. Skriv om testmetodene for `Kalkulator#subtraher` og `Kalkulator#multipliser`
     2. Kjør testene og se at de fremdeles er grønne
+
+Del 4: Testing med exceptions
+1. Opprett en metode i `Kalkulator` med følgende signatur som returnerer 0:
+```
+public int divider(int dividend, int divisor) {}
+```
+2. Opprett en testmetode i `KalkulatorTest` med følgende signatur:
+```
+public void skal_få_2_når_8_divideres_med_4()
+```
+3. Implementer testen, kjør `mvn test` og se at den feiler
+4. Implementer metoden `Kalkulator#divider`, kjør `mvn test` og se at testen går grønt
+5. Opprett en testmetode i `KalkulatorTest`med følgende signatur:
+```
+public void skal_få_IllegalArgumentException_når_divisor_er_0()
+```
+6. Bruk parameteret `exåected` til `@Test`-annotasjonen til å si at vi forventer enn IllegalArgumentException
+7. Implementer testmetoden og gjør et kall til `Kalkulator#divider` med 0 som divisor
+8. Kjør testen og se at den feiler
+9. Implementer en sjekk på divisorens verdi i `Kalkulator#divider` der en exception kastes dersom den er 0
+10. Kjør testen og se at den går grønt
+
+Del 5: Oppsett og opprydding
