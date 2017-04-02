@@ -22,7 +22,7 @@ public class VedtakServiceTest {
 
         vedtakService.godkjennVedtak(kundeId);
 
-//        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
+        verify(digitalPostKlient).sendVedtaksbrev(BigDecimal.TEN);
     }
 
 }
