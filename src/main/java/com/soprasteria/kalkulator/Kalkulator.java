@@ -13,4 +13,11 @@ public class Kalkulator {
     public int multipliser(int multiplikand, int multiplikator) {
         return multiplikand * multiplikator;
     }
+
+    public int divider(int dividend, int divisor) {
+        if (divisor == 0) {
+            throw new IllegalArgumentException("Divisor = 0!");
+        }
+        return dividend / divisor;
+    }
 }

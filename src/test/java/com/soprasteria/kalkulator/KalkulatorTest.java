@@ -36,4 +36,20 @@ public class KalkulatorTest {
         assertThat(resultat).isEqualTo(21);
     }
 
+    @Test
+    public void skal_få_2_når_8_divideres_med_4() {
+        Kalkulator kalkulator = new Kalkulator();
+
+        int resultat = kalkulator.divider(8, 4);
+
+        assertThat(resultat).isEqualTo(2);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void skal_få_IllegalArgumentException_når_divisor_er_0() {
+        Kalkulator kalkulator = new Kalkulator();
+
+        kalkulator.divider(3, 0);
+    }
+
 }
