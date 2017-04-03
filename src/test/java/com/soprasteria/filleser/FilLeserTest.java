@@ -3,6 +3,7 @@ package com.soprasteria.filleser;
 import com.soprasteria.fil.FilLeser;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -22,6 +23,7 @@ public class FilLeserTest {
         Files.write(tempFile.toPath(), Arrays.asList("Lisa gikk til skolen", "Tripp, tripp, tripp det sa"));
     }
 
+    @Ignore("Ignorert fordi ... ")
     @Test
     public void skal_lese_første_linje_fra_fil() throws Exception {
         String linje = FilLeser.lesLinjeFraFil(tempFile.getPath(), 0);
