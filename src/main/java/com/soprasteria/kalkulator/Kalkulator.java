@@ -16,7 +16,7 @@ public class Kalkulator {
 
     public int divider(int dividend, int divisor) {
         if (divisor == 0) {
-            throw new IllegalArgumentException("Divisor = 0!");
+            throw new IllegalArgumentException("Divisor kan ikke være 0!");
         }
         return dividend / divisor;
     }

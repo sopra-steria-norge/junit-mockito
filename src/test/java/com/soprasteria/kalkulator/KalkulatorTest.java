@@ -1,10 +1,15 @@
 package com.soprasteria.kalkulator;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class KalkulatorTest {
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void skal_få_4_når_1_og_3_adderes() {
@@ -45,9 +50,11 @@ public class KalkulatorTest {
         assertThat(resultat).isEqualTo(2);
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void skal_få_IllegalArgumentException_når_divisor_er_0() {
         Kalkulator kalkulator = new Kalkulator();
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Divisor kan ikke være 0!");
 
         kalkulator.divider(3, 0);
     }
