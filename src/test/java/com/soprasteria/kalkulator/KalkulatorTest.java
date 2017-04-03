@@ -1,7 +1,8 @@
 package com.soprasteria.kalkulator;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class KalkulatorTest {
 
@@ -14,7 +15,7 @@ public class KalkulatorTest {
         int resultat = kalkulator.adder(1, 3);
 
         // Assert
-        Assert.assertEquals(4, resultat);
+        assertThat(resultat).isEqualTo(4);
     }
 
     @Test
@@ -23,7 +24,7 @@ public class KalkulatorTest {
 
         int resultat = kalkulator.subtraher(12, 7);
 
-        Assert.assertEquals(5, resultat);
+        assertThat(resultat).isEqualTo(5);
     }
 
     @Test
@@ -32,7 +33,7 @@ public class KalkulatorTest {
 
         int resultat = kalkulator.multipliser(3, 7);
 
-        Assert.assertEquals(21, resultat);
+        assertThat(resultat).isEqualTo(21);
     }
 
 }
