@@ -63,7 +63,7 @@ public void skal_få_4_når_1_og_3_adderes()
 ## Del 4: Testing med exceptions
 1. Opprett en metode i `Kalkulator` med følgende signatur som returnerer 0:
 ```
-public int divider(int dividend, int divisor) {}
+public int divider(int dividend, int divisor) 
 ```
 2. Opprett en testmetode i `KalkulatorTest` med følgende signatur:
 ```
@@ -94,7 +94,7 @@ public void skal_lese_første_linje_fra_fil()
 4. Kjør testen og se at den går grønt
 5. Lag en til testmetode til med følgende signatur:
 ```
-public void skal_lese_andre_linje_fra_fil() {}
+public void skal_lese_andre_linje_fra_fil()
 ```
 8. Implementer testen på tilsvarende måte som sist. Husk å legge til to linjer med tekst i filen, og bruk `FilLeser#lesLinjeFraFil` for å lese den andre linjen.
 9. Kjør begge testene og se at de går grønt
@@ -108,7 +108,7 @@ public void setUp()
 14. Se i rotmappen til prosjektet. Ser du noe som ikke burde vært der?
 
 ### Oppgave
-15. Lag en metode som rydder opp de midlertidige filene etter at testene er kjørt
+15. Lag en metode som rydder opp de midlertidige filene etter at testene er kjørt vha. `@After`-annotasjonen
     1. Opprett en metode som heter `tearDown` i `FilLeserTest`
     2. Implementer metoden slik at den sletter den midlertidige filen som `setUp`-metoden oppretter
     3. Kjør testene og se at fortsatt er grønne. Hvordan ser rotmappa til prosjektet ut nå?
