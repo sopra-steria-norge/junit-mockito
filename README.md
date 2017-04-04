@@ -1,6 +1,6 @@
 # Introduksjon til JUnit og Mockito
 
-Mockito er et 
+https://github.com/mockito/mockito/wiki
 
 ## Oppgave 1: Mockito.mock(), @Mock, Mockito.when
 
